@@ -327,27 +327,27 @@ begin
 
         // Draw lanes
 
-        else if (h_count < 212) begin
+        //else if (h_count < 212) begin
 
-            rgb <= 24'hffffff; // First lane (white)
+            //rgb <= 24'hffffff; // First lane (white)
 
-        end else if (h_count < 217) begin
+       // end else if (h_count < 217) begin
 
-            rgb <= 24'h000000; // Left border of the first lane (black)
+            //rgb <= 24'h000000; // Left border of the first lane (black)
 
-        end else if (h_count < 424) begin
+        //end else if (h_count < 424) begin
 
-            rgb <= 24'hffffff; // Second lane (white)
+            //rgb <= 24'hffffff; // Second lane (white)
 
-        end else if (h_count < 428) begin
+        //end else if (h_count < 428) begin
 
-            rgb <= 24'h000000; // Left border of the second lane (black)
+            //rgb <= 24'h000000; // Left border of the second lane (black)
 
-        end else if (h_count < 636) begin
+        //end else if (h_count < 636) begin
 
-            rgb <= 24'hffffff; // Third lane (white)
+            //rgb <= 24'hffffff; // Third lane (white)
 
-        end
+        //end
 		  
 	else 
 	begin
@@ -355,15 +355,15 @@ begin
 			START:
 			begin
 				// Initialize values for the game start
-            player_turn <= 2'b00;
-            done <= 1'b0;
-            round <= 2'b00;
-				value_2_hex <= 16'd0;
-            round_winner <= 1'b0;
-            player1_played <= 1'b0;
-            player2_played <= 1'b0;
-            player1_score <= 5'b0;
-            player2_score <= 5'b0;			
+		            player_turn <= 2'b00;
+		            done <= 1'b0;
+		            round <= 2'b00;
+						value_2_hex <= 16'd0;
+		            round_winner <= 1'b0;
+		            player1_played <= 1'b0;
+		            player2_played <= 1'b0;
+		            player1_score <= 5'b0;
+		            player2_score <= 5'b0;			
 			end
 			
 			SHUFFLE:
@@ -372,8 +372,8 @@ begin
 				round <= 2'b00;
 				
 				// Reset player states during shuffling
-            player1_played <= 1'b0;
-            player2_played <= 1'b0;
+		            player1_played <= 1'b0;
+		            player2_played <= 1'b0;
 				
 				// Sudo Randomizer for the cards
 				
@@ -404,8 +404,8 @@ begin
 				player_turn <= 2'b01; //player 1 plays
 				
 				// Prepare for the new round
-            player1_played <= 1'b0;
-            player2_played <= 1'b0;
+		            player1_played <= 1'b0;
+		            player2_played <= 1'b0;
 				round <= 2'b01;
 			end
 			
@@ -415,8 +415,8 @@ begin
 				else if (round_winner == 2'b10) player_turn <= 2'b10; //player 2 plays
 				
 				// Prepare for the new round
-            player1_played <= 1'b0;
-            player2_played <= 1'b0;
+		            player1_played <= 1'b0;
+		            player2_played <= 1'b0;
 				round <= 2'b10;
 			end
 			
@@ -426,8 +426,8 @@ begin
 				else if (round_winner == 2'b10) player_turn <= 2'b10; //player 2 plays
 				
 				// Prepare for the new round
-            player1_played <= 1'b0;
-            player2_played <= 1'b0;
+		            player1_played <= 1'b0;
+		            player2_played <= 1'b0;
 				round <= 2'b11;
 			end
 			
@@ -538,7 +538,7 @@ begin
 					round_winner <= 1'b0;
 					player2_score <= player2_score + 1;
 				end
-         end
+        		end
 			WAIT_COMPARE_CARDS:
 			begin
 			
@@ -552,14 +552,14 @@ begin
 			DONE:
 			begin
 				// End the game
-            done <= 1'b1;
+            			done <= 1'b1;
 			end
 			
 			default:
 			begin
 				// Default case for safety
-            player_turn <= 2'b00;
-            done <= 1'b0;
+		            player_turn <= 2'b00;
+		            done <= 1'b0;
 			end
 		endcase
 	end
