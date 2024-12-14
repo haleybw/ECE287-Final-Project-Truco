@@ -1,6 +1,6 @@
 # ECE 287 PROJECT------ Truco Card Game on Intel FPGA
  ### Bruin Haley
- ### IAN Kmiliauskis
+ ### Ian Rodrigues Kmiliauskis
 
  ##### Final Version 12/13/2024
 
