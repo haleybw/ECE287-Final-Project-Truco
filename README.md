@@ -1,15 +1,17 @@
-# ECE 287 PROJECT------ Truco Card Game on Intel FPGA
+# ECE 287 PROJECT------ Card Game on Intel FPGA
  ### Bruin Haley
  ### Ian Rodrigues Kmiliauskis
 
  ##### Final Version 12/13/2024
 
-# Truco Card Game on FPGA with VGA and 7-Segment Display
+# Card Game on FPGA with VGA and 7-Segment Display
 
+## Description
+This repository contains a Verilog implementation of a finite state machine (FSM) for a two-player card game. The game includes state-based gameplay, card selection, scoring, and turn-based mechanics. Players compete in a best-of-three round structure, utilizing FSM logic to control game states and transitions.
 
 ## Overview
 
-This project implements a **Truco** card game on an FPGA, featuring the following components:
+This project implements a card game on an FPGA, featuring the following components:
 
 1. **VGA Driver** (`vga_driver.v`): Responsible for generating signals for a 640x480 VGA display.
 2. **On-Board 7-Segment Display Driver** (`fivedigit_decimal.v`): Converts the game data (scores, etc.) into signals for the FPGA's 7-segment displays.
@@ -70,7 +72,25 @@ The **Truco Game Logic** module handles the rules of the Truco card game, managi
 - `vga_data`: Data for VGA rendering
 - `on_board_data`: Data for 7-segment display rendering
 
+### Techniques and Features
+The project employs several advanced Verilog techniques and concepts:
 
+- **Finite State Machine (FSM)**: Implements game logic using states and transitions, leveraging parameter definitions for clarity and maintainability. MDN Documentation on FSM.
+- **State Transition with always Blocks**: Divides the FSM logic into three distinct blocks for inputs, state transitions, and outputs, following best practices.
+- **Binary Deck Representation**: Uses a compact binary encoding scheme for cards, grouping values and suits into efficient 6-bit representations.
+- **Modular Design**: Encapsulates display logic in a separate module, improving code clarity and reusability.
+
+## Rules for Playing the Card Game
+
+It is played with 2 players, one plays against the other.
+
+Truco is played in three rounds (“best of three”), to see who has the “strongest” cards (with the highest symbolic value), those rounds can be more valuable through the game. After the best of three rounds you get your new score and your new hand of cards.
+
+The distribution of cards is done automatically and randomly by our system, with no intervention from any player or member of the team in this process.
+- Players: 2
+- Number of cards: 32 (taking away 9, 10 , K, J, Q and Jokers)
+- Distribution: 3 cards for each participant
+- Objective: The person that scores 12 points wins the game.
 
 ## How to Use
 
@@ -90,6 +110,6 @@ The **Truco Game Logic** module handles the rules of the Truco card game, managi
 
 ## Conclusion
 
-This project integrates the **Truco** card game logic with FPGA-based VGA and 7-segment displays. The **VGA Driver** controls the display timing and rendering, while the **On-Board 7-Segment Display Driver** displays game data. The **Truco Game Logic** module implements the core game mechanics, controlling the state of the game and interfacing with the display modules.
+This project integrates the card game logic with FPGA-based VGA and 7-segment displays. The **VGA Driver** controls the display timing and rendering, while the **On-Board 7-Segment Display Driver** displays game data. The **Game Logic** module implements the core game mechanics, controlling the state of the game and interfacing with the display modules.
 
 ---
